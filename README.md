@@ -48,3 +48,70 @@ xxxxxxxx
 ```shell
 ./hcdump.bash -k xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -v publickey.pem app.conf.dat | jq
 ```
+
+## JSON 结构
+
+如果你懒得去得到密钥和相关文件，只是好奇文件内容，可以直接阅读以下 TypeScript 接口定义。
+
+```typescript
+interface AppConf {
+    _meta_ver: string
+    App: {
+        Region: string
+        Language: string
+        Company: string
+        Product: string
+        Standalone: boolean
+        Channel: string
+        SubChannel: string
+        LauncherId: string
+        CPS: string
+        UAPC: string
+        PrimaryGame: string
+        ClientEnv: string
+        ClientPreview: boolean
+        EnableBetaLogin: boolean
+        WebApiBaseUrl: string
+    }
+    FE: {
+        BridgeName: string
+        PackageKey: string
+    }
+    Launcher: {
+        LogDebugMode: boolean
+        PlatApp: string
+        Win7PatchUrl: string
+        Win7PatchMd5: string
+        Win7PatchEnable: boolean
+    }
+    ABTest: {
+        Url: string
+    }
+    Box: {
+        Url: string
+    }
+    H5Log: {
+        Url: string
+    }
+    DataUpload: {
+        Url: string
+    }
+    APM: {
+        AppId: string
+        AppKey: string
+    }
+    Updater: {
+        AppId: string
+        AppKey: string
+        ReportUrl: string
+    }
+    Epic: {
+        EnablePay: boolean
+        ProductId: string
+        SandboxId: string
+        DeploymentId: string
+        CredentialsId: string
+        CredentialsSecret: string
+    }
+}
+```
